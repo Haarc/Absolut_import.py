@@ -2,7 +2,6 @@
 <project version="4">
   <component name="Black">
     <option name="enabledOnReformat" value="true" />
-    <option name="enabledOnSave" value="true" />
     <option name="sdkUUID" value="1b52f860-a409-4d3c-a8e7-d34294f903e6" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (ParserInput)" project-jdk-type="Python SDK" />
