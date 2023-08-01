@@ -15,8 +15,6 @@ if __name__ == "__main__":
 
         df = pd.read_excel(excel_file_path)
 
-
-        # Вызываем функцию test_args и передаем DataFrame с данными
         login_user()
         test_args(df)
 
