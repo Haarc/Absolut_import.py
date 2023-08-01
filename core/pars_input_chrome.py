@@ -3,20 +3,25 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+
 options = webdriver.ChromeOptions()
-
-options.add_argument(
-    r"--user-data-dir=C:\Users\user\AppData\Local\Google\Chrome\User Data"
-)
-
+driver = webdriver.Chrome(options=options)
 
 options.add_experimental_option("detach", True)
+driver.get("https://absolut-tds.com/")
+
+
+def login_user():
+    driver.set_window_size(1920, 1080)
+    # driver.find_element(By.XPATH, "(//span[@class='content-icon'])[1]").click()
+    driver.find_element(By.XPATH, "//li[@class='login-icon content']/a[2]").click()
+    driver.find_element(By.ID, "login-email").send_keys("info@s-h-shop.ru")
+    driver.find_element(By.ID, "login-pass").send_keys("ajhlbr\n")
+
+    time.sleep(10)
 
 
 def test_args(df):
-    driver = webdriver.Chrome(options=options)
-    driver.set_window_size(1280, 720)
-
     # Получаем значения столбцов 'Ссылка на товар' и 'Количество' из DataFrame
     urls = df["Ссылка"].tolist()
     quantities = df["Количество"].tolist()
@@ -36,5 +41,3 @@ def test_args(df):
 
         except:
             print(f"Товара: {name_product}\n По ссылке {url} Нет в наличии")
-
-    driver.close()
